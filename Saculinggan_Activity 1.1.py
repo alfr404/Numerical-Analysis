@@ -15,7 +15,7 @@ def bisection_method(f_function, a, b, file, problem_name, tolerance=1e-6, max_s
     
     while (b - a) / 2.0 > tolerance and step < max_steps:
         step += 1
-        c = (a + b) / 2.0  # Find the midpoint
+        c = (a + b) / 2.0
         
         file.write(f"Step {step:2}: a={a:.6f}, b={b:.6f}, midpoint(c)={c:.8f}\n")
         
@@ -23,7 +23,7 @@ def bisection_method(f_function, a, b, file, problem_name, tolerance=1e-6, max_s
             break
             
         if f_function(a) * f_function(c) < 0:
-            b = c  # Root is in the left half
+            b = c
         else:
             a = c 
             
@@ -101,5 +101,4 @@ with open("bisection_log.txt", "w") as f:
 
 print("\nDONE! Opening the 'bisection_log.txt' file for you now...")
 
-# This command automatically opens the file in your default text editor!
 os.startfile("bisection_log.txt")
